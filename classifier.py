@@ -18,9 +18,9 @@ data[:, 1:] = data[:, 1:] / 255
 
 input_data: npt.NDArray[np.int_] = data[:, 1:]
 labels: npt.NDArray[np.int_] = data[:, 0]
-data: npt.NDArray[np.int_] = train_test_split(input_data, labels, test_size=TEST_SIZE, random_state=RANDOM_STATE)
+X_train, X_test, y_train, y_test = train_test_split(input_data, labels, test_size=TEST_SIZE, random_state=RANDOM_STATE)
 
-def MNIST_MLP(data: npt.NDArray[np.int_], hidden_layer_size: np.int_, batch_size: np.int_, learning_rate: np.int_) -> dict:
+def MNIST_MLP(hidden_layer_size: np.int_, batch_size: np.int_, learning_rate: np.int_) -> dict:
 
     model = tf.keras.models.Sequential([
         tf.keras.layers.Flatten(input_shape=(784,)),
@@ -34,9 +34,7 @@ def MNIST_MLP(data: npt.NDArray[np.int_], hidden_layer_size: np.int_, batch_size
     
     model.compile(loss=loss, optimizer=optimizer, metrics=metrics)
 
-    epochs: np.int_ = 10
-
-    X_train, X_test, y_train, y_test = data
+    epochs: np.int_ = 15
 
     model_history = model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, shuffle=True, verbose=0)
 
@@ -65,13 +63,13 @@ def MNIST_MLP(data: npt.NDArray[np.int_], hidden_layer_size: np.int_, batch_size
 
     return run_info
 
-hidden_layer_sizes: npt.NDArray[np.int_] = np.array([25, 50, 100])
+hidden_layer_sizes: list[int] = [25, 50, 100]
 batch_sizes: list[int] = [1, 20, 50, 3500]
-lerning_rates: npt.NDArray[np.float_] = np.array([0.5, 1.0, 10.0])
+lerning_rates: list[float] = [0.5, 1.0, 10.0]
 
 configurations: list = list(itertools.product(hidden_layer_sizes, batch_sizes, lerning_rates))
 
-run_infos: list[dict] = [MNIST_MLP(data=data, hidden_layer_size=a, batch_size=b, learning_rate=c) for a, b, c in configurations]
+run_infos: list[dict] = [MNIST_MLP(hidden_layer_size=a, batch_size=b, learning_rate=c) for a, b, c in configurations]
 
 with open("data/results.json", "a") as file:
     json.dump([run_info for run_info in run_infos], file, indent=4)
