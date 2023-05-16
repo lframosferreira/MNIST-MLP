@@ -18,25 +18,26 @@ data[:, 1:] = data[:, 1:] / 255
 
 input_data: npt.NDArray[np.int_] = data[:, 1:]
 labels: npt.NDArray[np.int_] = data[:, 0]
+
 X_train, X_test, y_train, y_test = train_test_split(input_data, labels, test_size=TEST_SIZE, random_state=RANDOM_STATE)
 
-def MNIST_MLP(hidden_layer_size: np.int_, batch_size: np.int_, learning_rate: np.int_) -> dict:
+def MNIST_MLP(hidden_layer_size: np.int_, batch_size: np.int_, learning_rate: np.float_) -> dict:
 
     model = tf.keras.models.Sequential([
         tf.keras.layers.Flatten(input_shape=(784,)),
         tf.keras.layers.Dense(hidden_layer_size, activation="sigmoid"),
-        tf.keras.layers.Dense(10, activation="softmax")
+        tf.keras.layers.Dense(10)
     ])
     
-    loss = tf.keras.losses.SparseCategoricalCrossentropy()
+    loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
     optimizer = tf.keras.optimizers.SGD(learning_rate=learning_rate)
     metrics = [tf.keras.metrics.SparseCategoricalAccuracy()]
     
     model.compile(loss=loss, optimizer=optimizer, metrics=metrics)
 
-    epochs: np.int_ = 15
+    epochs: np.int_ = 10
 
-    model_history = model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, shuffle=True, verbose=0)
+    model_history = model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, shuffle=True, verbose=1)
 
     y_pred: npt.NDArray[np.int_] = model.predict(X_test, batch_size=batch_size, verbose=0)
     y_pred = y_pred.argmax(axis=-1)
@@ -66,10 +67,13 @@ def MNIST_MLP(hidden_layer_size: np.int_, batch_size: np.int_, learning_rate: np
 hidden_layer_sizes: list[int] = [25, 50, 100]
 batch_sizes: list[int] = [1, 20, 50, 3500]
 lerning_rates: list[float] = [0.5, 1.0, 10.0]
-
+""" 
 configurations: list = list(itertools.product(hidden_layer_sizes, batch_sizes, lerning_rates))
 
 run_infos: list[dict] = [MNIST_MLP(hidden_layer_size=a, batch_size=b, learning_rate=c) for a, b, c in configurations]
 
 with open("data/results.json", "a") as file:
     json.dump([run_info for run_info in run_infos], file, indent=4)
+ """
+
+MNIST_MLP(100, 1, 1)
