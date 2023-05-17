@@ -73,4 +73,4 @@ configurations: list = list(itertools.product(hidden_layer_sizes, batch_sizes, l
 run_infos: list[dict] = [MNIST_MLP(data=data, hidden_layer_size=a, batch_size=b, learning_rate=c) for a, b, c in configurations]
 
 with open("data/results.json", "a") as file:
-    json.dump([run_info for run_info in run_infos], file, indent=6)
+    json.dump([run_info for run_info in run_infos], file, indent=4)
