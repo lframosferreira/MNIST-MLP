@@ -29,7 +29,7 @@ def MNIST_MLP(data: npt.NDArray[np.int_], hidden_layer_size: np.int_, batch_size
     
     model.compile(loss=loss, optimizer=optimizer, metrics=metrics)
 
-    epochs: np.int_ = 20
+    epochs: np.int_ = 10
 
     input_data: npt.NDArray[np.int_] = data[:, 1:]
     input_data = input_data / 255
@@ -63,7 +63,7 @@ def MNIST_MLP(data: npt.NDArray[np.int_], hidden_layer_size: np.int_, batch_size
     }
 
     return run_info
-"""
+
 hidden_layer_sizes: list[int] = [26, 50, 100]
 batch_sizes: list[int] = [2, 20, 50, 3500]
 lerning_rates: list[float] = [1.5, 1.0, 10.0]
@@ -73,6 +73,4 @@ configurations: list = list(itertools.product(hidden_layer_sizes, batch_sizes, l
 run_infos: list[dict] = [MNIST_MLP(data=data, hidden_layer_size=a, batch_size=b, learning_rate=c) for a, b, c in configurations]
 
 with open("data/results.json", "a") as file:
-    json.dump([run_info for run_info in run_infos], file, indent=6)"""
-
-MNIST_MLP(data, 100, 20, 1)
+    json.dump([run_info for run_info in run_infos], file, indent=6)
