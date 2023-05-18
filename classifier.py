@@ -9,7 +9,7 @@ import json
 import itertools
 
 # defining constants
-TEST_SIZE: np.float_ = 0.3
+TEST_SIZE: np.float_ = 0.1
 RANDOM_STATE: np.int_ = 42
 
 # importing and handling data
@@ -65,7 +65,7 @@ def MNIST_MLP(data: npt.NDArray[np.int_], hidden_layer_size: np.int_, batch_size
     return run_info
 
 hidden_layer_sizes: list[int] = [25, 50, 100]
-batch_sizes: list[int] = [1, 10, 50, 3500]
+batch_sizes: list[int] = [1, 10, 50, int(5000 * (1 - TEST_SIZE))]
 lerning_rates: list[float] = [0.5, 1.0, 10.0]
 
 configurations: list = list(itertools.product(hidden_layer_sizes, batch_sizes, lerning_rates))
