@@ -15,7 +15,7 @@ RANDOM_STATE: np.int_ = 42
 # importing and handling data
 data: pd.DataFrame = pd.read_csv("data/input/data_tp1", header=None).to_numpy()
 
-def MNIST_MLP(data: npt.NDArray[np.int_], hidden_layer_size: np.int_, batch_size: np.int_, learning_rate: np.float_) -> dict:
+def MNIST_MLP(data: npt.NDArray[np.int_], epochs: np.int_, hidden_layer_size: np.int_, batch_size: np.int_, learning_rate: np.float_) -> dict:
 
     model = tf.keras.models.Sequential([
         tf.keras.layers.Flatten(input_shape=(784,)),
@@ -29,7 +29,7 @@ def MNIST_MLP(data: npt.NDArray[np.int_], hidden_layer_size: np.int_, batch_size
     
     model.compile(loss=loss, optimizer=optimizer, metrics=metrics)
 
-    epochs: np.int_ = 10
+    epochs: np.int_ = epochs
 
     input_data: npt.NDArray[np.int_] = data[:, 1:]
     input_data = input_data / 255
@@ -56,6 +56,7 @@ def MNIST_MLP(data: npt.NDArray[np.int_], hidden_layer_size: np.int_, batch_size
         "confusion_matrix": confusion_matrix.tolist(),
         "random_state_seed": RANDOM_STATE,
         "test_size": TEST_SIZE,
+        "epochs": epochs,
         "hidden_layer_size": hidden_layer_size,
         "batch_size": batch_size,
         "learning_rate": learning_rate,
@@ -67,10 +68,11 @@ def MNIST_MLP(data: npt.NDArray[np.int_], hidden_layer_size: np.int_, batch_size
 hidden_layer_sizes: list[int] = [25, 50, 100]
 batch_sizes: list[int] = [1, 10, 50, int(5000 * (1 - TEST_SIZE))]
 lerning_rates: list[float] = [0.5, 1.0, 10.0]
+epochs: list[int] = [10, 50, 100]
 
-configurations: list = list(itertools.product(hidden_layer_sizes, batch_sizes, lerning_rates))
+configurations: list = list(itertools.product(epochs, hidden_layer_sizes, batch_sizes, lerning_rates))
 
-run_infos: list[dict] = [MNIST_MLP(data=data, hidden_layer_size=a, batch_size=b, learning_rate=c) for a, b, c in configurations]
+run_infos: list[dict] = [MNIST_MLP(data=data, epochs=a, hidden_layer_size=b, batch_size=c, learning_rate=d) for a, b, c, d in configurations]
 
 with open("data/results.json", "a") as file:
     json.dump([run_info for run_info in run_infos], file, indent=4)
