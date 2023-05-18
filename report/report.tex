@@ -60,27 +60,33 @@ Conforme especificado, foram testados e comparados os resultados da rede neurona
         \end{itemize}
 \end{itemize}
 
-O resultado obtido para cada umas das 36 configurações foi armazenado em um arquivo JSON, de modo que sua leitura e manipulação fosse facilitada, e assim bibliotecas de análise de dados como Pandas pudessem ser utilizadas para interpretar
+Para fins de analisar também como o número de épocas de treino afeta o modelo, todas as configurações possíveis descritas acima foram utilizadas em modelos que treinaram por 10, 50 e 100 épocas.
+
+O resultado obtido para cada umas das 108 configurações foi armazenado em um arquivo JSON, de modo que sua leitura e manipulação fosse facilitada, e assim bibliotecas de análise de dados como Pandas pudessem ser utilizadas para interpretar
 como se comportou cada parametrização do modelo durante o treino.
 
-\section{Análise dos resultados}
+\section{Análise dos resultados de teste}
 
-De maneira geral, os dados gerados deixaram muito claro quais as configurações que permitiam uma boa e uma má performance do modelo. As duas tabelas a seguir mostram os parâmetros das 5 configurações que obtiveram o menor valor de acurácia no conjunto de treino,
-assim como as 5 configurações com o maior valor de acurácia.
+De maneira geral, os dados gerados deixaram muito claro quais as configurações que permitiam uma boa e uma má performance do modelo. As duas tabelas a seguir mostram os parâmetros das 10 configurações que obtiveram o menor valor de acurácia no conjunto de treino, assim como as 10 configurações com o maior valor de acurácia.
 
 \begin{table}[H]
     \centering
         \captionsetup{labelformat=empty} 
-        \caption{5 piores desempenhos}
-        \begin{tabular}{c c c c}
+        \caption{10 piores desempenhos}
+        \begin{tabular}{| c c c c c |}
         \hline
-        Tamanho da camada oculta & Tamanho do lote & Taxa de aprendizado & Acurácia \\
+        Épocas & Tamanho da camada oculta & Tamanho do lote & Taxa de aprendizado & Acurácia \\
         \hline
-         25 &    1 & 10.0 & 0.094 \\
-        100 & 4500 & 10.0 & 0.100 \\
-        100 &    1 & 10.0 & 0.108 \\
-         50 &    1 & 10.0 & 0.146 \\
-         25 & 4500 & 10.0 & 0.226 \\
+            100 &  25 &    1 & 10.0 & 0.098 \\
+            100 &  50 &    1 & 10.0 & 0.098 \\
+            100 & 100 &    1 & 10.0 & 0.098 \\
+            10 &  50 &    1 & 10.0 & 0.108 \\
+            10 &  25 &    1 & 10.0 & 0.110 \\
+            50 &  50 &    1 & 10.0 & 0.120 \\
+            50 &  25 &    1 & 10.0 & 0.128 \\
+            50 & 100 &    1 & 10.0 & 0.170 \\
+            10 &  50 & 4500 & 10.0 & 0.176 \\
+            10 & 100 &    1 & 10.0 & 0.182 \\
         \hline
         \end{tabular}
 \end{table}
@@ -88,26 +94,39 @@ assim como as 5 configurações com o maior valor de acurácia.
 \begin{table}[H]
     \centering
         \captionsetup{labelformat=empty} 
-        \caption{5 melhores desempenhos}
-        \begin{tabular}{c c c c}
+        \caption{10 melhores desempenhos}
+        \begin{tabular}{| c c c c c |}
         \hline
-        Tamanho da camada oculta & Tamanho do lote & Taxa de aprendizado & Acurácia \\
+        Épocas & Tamanho da camada oculta & Tamanho do lote & Taxa de aprendizado & Acurácia \\
         \hline
-            100 & 10 & 1.0 & 0.944 \\
-            100 & 50 & 1.0 & 0.942 \\
-             50 & 10 & 1.0 & 0.940 \\
-             50 & 50 & 1.0 & 0.936 \\
-             50 & 50 & 0.5 & 0.934 \\
+            50 & 100 & 10 & 1.0 & 0.946 \\
+            50 & 100 & 10 & 0.5 & 0.944 \\
+            50 & 100 & 50 & 1.0 & 0.942 \\
+            100 & 100 & 10 & 0.5 & 0.942 \\
+            10 & 100 & 10 & 1.0 & 0.940 \\
+            100 & 100 & 10 & 1.0 & 0.940 \\
+            100 & 100 & 50 & 1.0 & 0.940 \\
+            10 &  50 & 10 & 0.5 & 0.938 \\
+            50 &  50 & 10 & 0.5 & 0.938 \\
+            10 & 100 & 50 & 1.0 & 0.936 \\
         \hline
         \end{tabular}
 \end{table}
 
-Em primeiro lugar, evidencia-se o fato de que todos os 5 piores valores de acurácia obtidos nos dados de treino
-ocorreram em modelos com uma taxa de aprendizado igual a 10. Isso indica que uma taxa de aprendizado alta
-não é uma boa opção para o treino de uma rede neural, devido ao fato de que uma alta taxa leva a uma grande
-quantidade de oscilações durante o treino, gerando alta divergência do erro empírico.
+Em primeiro lugar, evidencia-se o fato de que todos os 10 piores valores de acurácia obtidos nos dados de treino ocorreram em modelos com uma taxa de aprendizado igual a 10. Isso indica que uma taxa de aprendizado alta não é uma boa opção para o treino de uma rede neural, devido ao fato de que uma alta taxa leva a uma grande quantidade de oscilações durante o treino, gerando alta divergência do erro empírico e, consequentemente, um modelo de baixíssima performance.
 
-Outro fato relevante a se notar é o tamanho dos lotes que geraram os piores resultados. Os modelos em questão
-utilizavam ou o algoritmo Gradient Descent (tamanho de lote igual a 4500)
+Outro fato relevante a se notar é o tamanho dos lotes que geraram os piores resultados. Dentre os 10 piores modelos criados, 9 utilizavam ou o algoritmo Stochastic Gradient Descent (tamanho de lote igual a 1). Isso, no entanto, não quer dizer que o uso dessa abordagem seja ruim. O SGD é um algoritmo que pode sim gerar bons resultados e ter uma boa performance. O detalhe principal que o levou a aparecer tantas vezes no topo dos piores modelos é a taxa de aprendizado alta, como citada anteriormente. Como a cada entrada os pesos da rede serão alterados, a alta taxa de aprendizado torna ainda mais grave a divergência do erro empírico e causa ainda mais confusão.
+
+Por outro lado, os 10 modelos com os melhores desempenhos em acurácia demonstram que uma taxa de aprendizado equilibrada é um importante fator para um bom resultado. Todos os modelos na tabela contêm taxas de 0.5 ou 1.0. Pode-se notar também que prevalecem entre os melhores modelos tamanhos de lote igual a 10 ou 50, ou seja, o uso do algoritmo Mini batch se mostrou o mais performático na construção da rede neuronal. Isso é esperado, dado que a intuição do algoritmo de gradiente Mini batch é justamente evitar valores extremos para atualização dos pesos da rede, o que aumenta o poder de generalização da rede.
+
+Por fim, nota-se que 8 entre os 10 modelos com melhor resultado possuem 100 neurônios na camada oculta. Tal fato confirma as hipóteses de que, com mais neurônios, o modelo irá aprender a identificar mais padrões e terá mais poder de generalização. No entanto, deve-se ter cuidado com esse parâmetro da rede, uma vez que números muito altos de neurônios nas camadas ocultas podem gerar problemas relacionados a alta variãncia do modelo gerado.
+
+Em resumo, nota-se que as configurações da rede impactam diretamente em sua performance, e esses parâmetros devem ser estimados com cuidado e suas feitas escolhas considerando cada detalhe necessário para ter um modelo capaz de generalizar bem os dados ao final do treinamento.
+
+OBS: COMENTAR SOBRE discussão da variação do número de unidades na camada oculta para cada um dos três algoritmos de cálculo de gradiente.
+
+\section{Convergência do erro empírico}
+
+Durante o treinamento das redes neuronais propostas, o histórico do erro empírico pode ser armazenado para análise de sua convergência, considerando cada configuração de rede proposta.
 
 \end{document}
