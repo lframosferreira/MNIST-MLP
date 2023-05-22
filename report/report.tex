@@ -48,9 +48,9 @@ Conforme especificado, foram testados e comparados os resultados da rede neurona
         \end{itemize}
     \item Algoritmo de cálculo de gradiente 
         \begin{itemize}
-            \item Gradient Descent (O gradiente é calculado após cada época, neste caso, 5000 entradas)
-            \item Stochastic Gradient Descent (O gradiente é calculado após cada entrada)
-            \item Mini batch (O gradiente é calculado após um certo número de entradas, neste caso, 10 e 50)
+            \item \textit{Gradient Descent} (O gradiente é calculado após cada época, neste caso, 5000 entradas)
+            \item \textit{Stochastic Gradient Descent} (O gradiente é calculado após cada entrada)
+            \item \textit{Mini batch} (O gradiente é calculado após um certo número de entradas, neste caso, 10 e 50)
         \end{itemize}
     \item Taxa de aprendizado 
         \begin{itemize}
@@ -62,7 +62,7 @@ Conforme especificado, foram testados e comparados os resultados da rede neurona
 
 Para fins de analisar também como o número de épocas de treino afeta o modelo, todas as configurações possíveis descritas acima foram utilizadas em modelos que treinaram por 10, 50 e 100 épocas.
 
-O resultado obtido para cada umas das 108 configurações foi armazenado em um arquivo JSON, de modo que sua leitura e manipulação fosse facilitada, e assim bibliotecas de análise de dados como Pandas pudessem ser utilizadas para interpretar
+O resultado obtido para cada umas das 108 configurações foi armazenado em um arquivo \textit{JSON}, de modo que sua leitura e manipulação fosse facilitada, e assim bibliotecas de análise de dados como Pandas pudessem ser utilizadas para interpretar
 como se comportou cada parametrização do modelo durante o treino.
 
 \section{Análise dos resultados de teste}
@@ -113,17 +113,50 @@ De maneira geral, os dados gerados deixaram muito claro quais as configurações
         \end{tabular}
 \end{table}
 
-Em primeiro lugar, evidencia-se o fato de que todos os 10 piores valores de acurácia obtidos nos dados de treino ocorreram em modelos com uma taxa de aprendizado igual a 10. Isso indica que uma taxa de aprendizado alta não é uma boa opção para o treino de uma rede neural, devido ao fato de que uma alta taxa leva a uma grande quantidade de oscilações durante o treino, gerando alta divergência do erro empírico e, consequentemente, um modelo de baixíssima performance.
+Em primeiro lugar, evidencia-se o fato de que todos os 10 piores valores de acurácia obtidos nos dados de treino ocorreram em modelos com uma taxa de aprendizado igual a 10. Isso indica que uma taxa de aprendizado alta não é uma boa opção para o treino de uma rede neuronal, devido ao fato de que uma alta taxa leva a uma grande quantidade de oscilações durante o treino, gerando alta divergência do erro empírico e, consequentemente, um modelo de baixíssima performance.
 
-Outro fato relevante a se notar é o tamanho dos lotes que geraram os piores resultados. Dentre os 10 piores modelos criados, 9 utilizavam ou o algoritmo Stochastic Gradient Descent (tamanho de lote igual a 1). Isso, no entanto, não quer dizer que o uso dessa abordagem seja ruim. O SGD é um algoritmo que pode sim gerar bons resultados e ter uma boa performance. O detalhe principal que o levou a aparecer tantas vezes no topo dos piores modelos é a taxa de aprendizado alta, como citada anteriormente. Como a cada entrada os pesos da rede serão alterados, a alta taxa de aprendizado torna ainda mais grave a divergência do erro empírico e causa ainda mais confusão.
+Outro fato relevante a se notar é o tamanho dos lotes que geraram os piores resultados. Dentre os 10 piores modelos criados, 9 utilizavam ou o algoritmo \textit{Stochastic Gradient Descent} (tamanho de lote igual a 1). Isso, no entanto, não quer dizer que o uso dessa abordagem seja ruim. O \textit{SGD} é um algoritmo que pode sim gerar bons resultados e ter uma boa performance. O detalhe principal que o levou a aparecer tantas vezes no topo dos piores modelos é a taxa de aprendizado alta, como citada anteriormente. Como a cada entrada os pesos da rede serão alterados, a alta taxa de aprendizado torna ainda mais grave a divergência do erro empírico e causa ainda mais confusão.
 
 Por outro lado, os 10 modelos com os melhores desempenhos em acurácia demonstram que uma taxa de aprendizado equilibrada é um importante fator para um bom resultado. Todos os modelos na tabela contêm taxas de 0.5 ou 1.0. Pode-se notar também que prevalecem entre os melhores modelos tamanhos de lote igual a 10 ou 50, ou seja, o uso do algoritmo Mini batch se mostrou o mais performático na construção da rede neuronal. Isso é esperado, dado que a intuição do algoritmo de gradiente Mini batch é justamente evitar valores extremos para atualização dos pesos da rede, o que aumenta o poder de generalização da rede.
 
 Por fim, nota-se que 8 entre os 10 modelos com melhor resultado possuem 100 neurônios na camada oculta. Tal fato confirma as hipóteses de que, com mais neurônios, o modelo irá aprender a identificar mais padrões e terá mais poder de generalização. No entanto, deve-se ter cuidado com esse parâmetro da rede, uma vez que números muito altos de neurônios nas camadas ocultas podem gerar problemas relacionados a alta variãncia do modelo gerado.
 
-Em resumo, nota-se que as configurações da rede impactam diretamente em sua performance, e esses parâmetros devem ser estimados com cuidado e suas feitas escolhas considerando cada detalhe necessário para ter um modelo capaz de generalizar bem os dados ao final do treinamento.
+Em resumo, nota-se que as configurações da rede impactam diretamente em sua performance, e esses parâmetros devem ser estimados com cuidado e suas escolhas feitas considerando cada detalhe necessário para ter um modelo capaz de generalizar bem os dados ao final do treinamento.
 
-OBS: COMENTAR SOBRE discussão da variação do número de unidades na camada oculta para cada um dos três algoritmos de cálculo de gradiente.
+\subsection{Trade-off entre número de unidades da camada oculta e algoritmo de cálculo de gradiente}
+
+Ao analisar os diferentes desempenhos da rede neuronal de acordo com a variação entre o número de unidades da camada oculta e o algoritmo de gradiente utilizado, podemos inferir diretamente que o aumento do número de neurônios
+causa um impacto positivo  no desempenho do modelo. Tal inferência faz sentido, uma vez que com uma rede com mais neurônios, mais informações podem ser extraídas e dessa maneira de melhor forma o modelo poderá generalizar sobre
+dados ainda não vistos. No entanto, fica claro que um abuso desse hiperparâmetro é algo que pode levar a \textit{overfitting}.
+
+Nos gráficos abaixo, podemos ver a variação da acurácia do modelo nos dados de teste em função da variação do número de unidades na camada oculta, para cada um dos algoritmo de cálculo de gradiente propostos.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/tradeoff/SGD.jpg}
+    \caption{Acurácia por número de neurônios para o algoritmo \textit{Stochastic Gradient Descent}}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/tradeoff/MB10.jpg}
+    \caption{Acurácia por número de neurônios para o algoritmo \textit{Mini batch} (10)}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/tradeoff/MB50.jpg}
+    \caption{Acurácia por número de neurônios para o algoritmo \textit{Mini batch} (50)}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/tradeoff/GD.jpg}
+    \caption{Acurácia por número de neurônios para o algoritmo \textit{Gradient Descent}}
+\end{figure}
+
+
+FALAR MAIS AQUI
 
 \section{Convergência do erro empírico}
 
