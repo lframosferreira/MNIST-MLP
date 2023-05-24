@@ -13,7 +13,8 @@
 \usepackage{float}
 
 \title{Aprendizado de Máquina \\ Trabalho Prático 1}
-\author{Luís Felipe Ramos Ferreira \\ 2019022553}
+\author{Luís Felipe Ramos Ferreira \\ 2019022553 \\
+    \href{mailto:lframos_ferreira@outlook.com}{\texttt{lframos\_ferreira@outlook.com}}}
 
 \begin{document}
 \maketitle
@@ -26,7 +27,7 @@ O Trabalho Prático 1 da disciplina de Aprendizado de Máquina teve como tema a 
 
 A linguagem escolhida para o desenvolvimento do trabalho foi \href{https://www.python.org/}{\texttt{Python}} (versão 3.10), devida a sua grande variedade de bibliotecas úteis para ciência de dados e aprendizado de máquina. A modelagem da rede neuronal foi feita com o uso da API keras disponibilizada na biblioteca \href{https://www.tensorflow.org/}{\texttt{TensorFlow}}, uma vez que se tratava de uma ferramenta extremamente completa para todos os objetivos do trabalho que permitia grande flexibilidade na modelagem da rede.
 
-Para organizar o ambiente, que englobava várias bibliotecas diferentes, foi utilizado o gerenciador de pacotes \href{https://www.anaconda.com/}{\texttt{Anaconda}}, o que tornou muito mais fácil trabalhar com os pacotes de ciência de dados citados. O projeto final foi salvo em um repositório~\cite{Ramos_Ferreira_MNIST-MLP_2022} no GitHub
+Para organizar o ambiente, que englobava várias bibliotecas diferentes, foi utilizado o gerenciador de pacotes \href{https://www.anaconda.com/}{\texttt{Anaconda}}, o que tornou muito mais fácil trabalhar com os pacotes de ciência de dados citados. O projeto final foi salvo em um \href{https://github.com/lframosferreira/MNIST-MLP}{\texttt{repositório}} no GitHub
 para fácil versionamento de código e visualização.
 
 \section{Experimentos}
@@ -212,8 +213,5 @@ esperar, já que se tratam de modelos com altíssimas taxas de aprendizado e que
 que em todos eles o erro empírico final foi muito alto, com o modelo com 25 neurônios na camada oculta sendo o que convergiu
 para o menor deles. Isso se deve ao fato de que, com a alta taxa de aprendizado e uma atualização constante dos pesos, uma rede
 com menos neurônios, isto é, mais simples, irá sofrer menos com oscilações.
-
-\nocite{*}
-\bibliography{references.bib}
 
 \end{document}
