@@ -8,7 +8,7 @@
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{natbib}
-\bibliographystyle{apalike}
+\bibliographystyle{alpha}
 \usepackage{caption}
 \usepackage{float}
 
@@ -24,14 +24,14 @@ O Trabalho Prático 1 da disciplina de Aprendizado de Máquina teve como tema a 
 
 \section{Implementação}
 
-A linguagem escolhida para o desenvolvimento do trabalho foi Python (versão 3.10), devida a sua grande variedade de bibliotecas úteis para ciência de dados e aprendizado de máquina. A modelagem da rede neuronal foi feita com o uso da API keras disponibilizada na biblioteca TensorFlow, uma vez que se tratava de uma ferramenta extremamente completa para todos os objetivos do trabalho que permitia grande flexibilidade na modelagem da rede.
+A linguagem escolhida para o desenvolvimento do trabalho foi \href{https://www.python.org/}{\texttt{Python}} (versão 3.10), devida a sua grande variedade de bibliotecas úteis para ciência de dados e aprendizado de máquina. A modelagem da rede neuronal foi feita com o uso da API keras disponibilizada na biblioteca \href{https://www.tensorflow.org/}{\texttt{TensorFlow}}, uma vez que se tratava de uma ferramenta extremamente completa para todos os objetivos do trabalho que permitia grande flexibilidade na modelagem da rede.
 
-Para organizar o ambiente, que englobava várias bibliotecas diferentes, foi utilizado o gerenciador de pacotes Anaconda, o que tornou muito mais fácil trabalhar com os pacotes de ciência de dados citados. O projeto final foi salvo em um~\cite[repositório]{Ramos_Ferreira_MNIST-MLP_2022} no GitHub
+Para organizar o ambiente, que englobava várias bibliotecas diferentes, foi utilizado o gerenciador de pacotes \href{https://www.anaconda.com/}{\texttt{Anaconda}}, o que tornou muito mais fácil trabalhar com os pacotes de ciência de dados citados. O projeto final foi salvo em um repositório~\cite{Ramos_Ferreira_MNIST-MLP_2022} no GitHub
 para fácil versionamento de código e visualização.
 
 \section{Experimentos}
 
-Os experimentos foram realizados sobre uma subparte da base de dados MNIST, disponibilizados no enunciado do trabalho. Essa parte possui um total de 5000 instâncias, que foram divididas em conjunto de treino (90\%) e conjunto de teste (10\%), de modo
+Os experimentos foram realizados sobre uma subparte da base de dados \href{https://en.wikipedia.org/wiki/MNIST_database#:~:text=The%20MNIST%20database%20(Modified%20National,the%20field%20of%20machine%20learning.}{\texttt{MNIST}}, disponibilizados no enunciado do trabalho. Essa parte possui um total de 5000 instâncias, que foram divididas em conjunto de treino (90\%) e conjunto de teste (10\%), de modo
 que os modelos finais gerados no teste pudessem ser avaliados com o conjunto de treino.
 
 Conforme especificado, foram testados e comparados os resultados da rede neuronal na classificação dos dígitos para diferentes parâmetros de modelagem. Mais especificamente, todas as permutações das seguintes configurações foram utilizadas:
