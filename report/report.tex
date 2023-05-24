@@ -169,36 +169,51 @@ Inicialmente, como discutido em seções anteriores, os modelos que tiveram os m
 Tendo essas informações, os seguintes três gráficos foram gerados, em que, baseado nessas constatações, valores fixos para os dois hiperparâmetros não variáveis puderam ser escolhidos.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/empirical_error/batch_size_not_fixed.jpg}
-    \caption{Convergência do erro empírico com tamanho do lote (Algoritmo de cálculo de gradiente) variável}
+{\centering
+\includegraphics[width=0.8\textwidth]{images/empirical_error/batch_size_not_fixed.jpg}
+\caption{Convergência do erro empírico com tamanho do lote (Algoritmo de cálculo de gradiente) variável}}
 \end{figure}
 
-Neste primeiro gráfico, podemos ver imediatamente que o algoritmo \texit{Stochastic Gradient Descent} (tamanho do lote igual a 1) foi o que pior performou na convergência do erro empírico
-para esta configuração. O seu erro empírivo, inclusive, teve diversas flutuações e sequer pareceu ter algum tipo de converg^ncia que faça sentido. Isso se deve ao fato de que na sua definição, os pesos
-da rede são alterados a cada dado de treino, portanto o conjunto de funções que a rede pode gerar é muito grande, causando essas flutuações. Com mais épocas, é possível que o modelo de \texit{SGD} tivesse
-um melhor desempenho. 
+Neste primeiro gráfico, podemos ver imediatamente que o algoritmo \textit{Stochastic Gradient Descent} (tamanho do lote igual a 1) foi o que pior performou na convergência do erro empírico
+para esta configuração. O seu erro empírivo, inclusive, teve diversas flutuações e sequer pareceu ter algum tipo de convergência que faça sentido. Isso se deve ao fato de que na sua definição, os pesos
+da rede são alterados a cada dado de treino, portanto o algoritmo não conseguiu encontrar uma função que generalizasse bem o conjunto de dados
+desejado, causando flutuações. Com mais épocas, é possível que o modelo de \textit{SGD} tivesse um melhor desempenho. 
 
 Em relação aos outros algoritmos, nota-se que todos convergiram para erros empíricos bem baixos, com os melhores sendo os que utilizaram o algoritmo \textit{Mini batch} (tamanhos de lote 10 e 50), uma vez
 essa configuração permite uma atualização dos pesos em momentos equilibrados, propiciando um melhor ambeinte para convergência do erro empírico.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/empirical_error/hidden_layer_size_not_fixed.jpg}
-    \caption{Convergência do erro empírico com tamanho da rede oculta variável}
+{\centering
+\includegraphics[width=0.8\textwidth]{images/empirical_error/hidden_layer_size_not_fixed.jpg}
+\caption{Convergência do erro empírico com tamanho da rede oculta variável}}
 \end{figure}
 
 Nesta configuração, nota-se todos os modelos convergiram para valores baixos de erro empírico, com a rede com 100 neurônios na camada oculta convergindo
 mais rapidamente e para valores menores. De modo geral, como era de se esperar, aumentar o número de neurônios, para esta configuração, melhora a performance.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/empirical_error/learning_rate_not_fixed.jpg}
-    \caption{Convergência do erro empírico com taxa de aprendizado variável}
+{\centering
+\includegraphics[width=0.8\textwidth]{images/empirical_error/learning_rate_not_fixed.jpg}
+\caption{Convergência do erro empírico com taxa de aprendizado variável}}
 \end{figure}
 
 Por fim, no gráfico acima, podemos ver que para as configurações escolhidas, o modelo converge para valores baixos de erro empírico conforme o passar das épocas.
-Fica claro, conforme também foi discutido anteriormente, que a taxa de aprendizado 10.0 é a pior dentre as trẽs, já que converge para o valor mais alto de erro. Também
-como já discutido, isso ocorre pois uma alta taxa de aprendizado gera altas oscilações no treinamento, o que causa um alto nível de divergências.
+Fica claro, conforme também foi discutido anteriormente, que a taxa de aprendizado 10.0 é a pior dentre as três, já que converge para o valor mais alto de erro. Também
+como já discutido, isso ocorre pois uma alta taxa de aprendizado gera altas oscilações no treinamento, o que causa um alto nível de divergências nessa etapa.
+
+Em relação aos piores modelos gerados, foi discutido como em todos a taxa de aprendizado igual a 10.0 estava presente, e em 9 dos 10 o algoritmo utilizado foi o \textit{Stochastic Gradient Descent}.
+Dessa forma, optou-se por gerar o gráfico referente a uma configuração de rede com estes valores, e o tamanho da rede oculta variável.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/empirical_error/hidden_layer_size_not_fixed_bad.jpg}
+    \caption{Convergência do erro empírico com tamanho da rede oculta variável - Piores valores}
+\end{figure}
+
+A primeira coisa que se nota ao avaliar esse gráfico é como todos os erros possuem um alto grau de oscilação/divergência. Como era de se
+esperar, já que se tratam de modelos com altíssimas taxas de aprendizado e que utilizam o algoritmo \textit{SGD}. Vê-se também
+que em todos eles o erro empírico final foi muito alto, com o modelo com 25 neurônios na camada oculta sendo o que convergiu
+para o menor deles. Isso se deve ao fato de que, com a alta taxa de aprendizado e uma atualização constante dos pesos, uma rede
+com menos neurônios, isto é, mais simples, irá sofrer menos com oscilações.
 
 \end{document}
