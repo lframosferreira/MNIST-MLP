@@ -4,7 +4,6 @@ import numpy.typing as npt
 import sklearn
 import tensorflow as tf
 from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
 import json
 import itertools
 
@@ -13,7 +12,7 @@ TEST_SIZE: np.float_ = 0.1
 RANDOM_STATE: np.int_ = 42
 
 # importing and handling data
-data: pd.DataFrame = pd.read_csv("data/input/data_tp1", header=None).to_numpy()
+data: npt.NDArray[np.int_] = pd.read_csv("data/input/data_tp1", header=None).to_numpy()
 
 def MNIST_MLP(data: npt.NDArray[np.int_], epochs: np.int_, hidden_layer_size: np.int_, batch_size: np.int_, learning_rate: np.float_) -> dict:
 
@@ -64,6 +63,7 @@ def MNIST_MLP(data: npt.NDArray[np.int_], epochs: np.int_, hidden_layer_size: np
     }
 
     return run_info
+
 
 hidden_layer_sizes: list[int] = [25, 50, 100]
 batch_sizes: list[int] = [1, 10, 50, int(5000 * (1 - TEST_SIZE))]
