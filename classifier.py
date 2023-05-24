@@ -14,18 +14,26 @@ RANDOM_STATE: np.int_ = 42
 # importing and handling data
 data: npt.NDArray[np.int_] = pd.read_csv("data/input/data_tp1", header=None).to_numpy()
 
-def MNIST_MLP(data: npt.NDArray[np.int_], epochs: np.int_, hidden_layer_size: np.int_, batch_size: np.int_, learning_rate: np.float_) -> dict:
 
-    model = tf.keras.models.Sequential([
-        tf.keras.layers.Flatten(input_shape=(784,)),
-        tf.keras.layers.Dense(units=hidden_layer_size, activation="sigmoid"),
-        tf.keras.layers.Dense(units=10, activation="softmax")
-    ])
-    
+def MNIST_MLP(
+    data: npt.NDArray[np.int_],
+    epochs: np.int_,
+    hidden_layer_size: np.int_,
+    batch_size: np.int_,
+    learning_rate: np.float_,
+) -> dict:
+    model = tf.keras.models.Sequential(
+        [
+            tf.keras.layers.Flatten(input_shape=(784,)),
+            tf.keras.layers.Dense(units=hidden_layer_size, activation="sigmoid"),
+            tf.keras.layers.Dense(units=10, activation="softmax"),
+        ]
+    )
+
     loss = tf.keras.losses.SparseCategoricalCrossentropy()
     optimizer = tf.keras.optimizers.SGD(learning_rate=learning_rate)
     metrics = [tf.keras.metrics.SparseCategoricalAccuracy()]
-    
+
     model.compile(loss=loss, optimizer=optimizer, metrics=metrics)
 
     epochs: np.int_ = epochs
@@ -34,18 +42,32 @@ def MNIST_MLP(data: npt.NDArray[np.int_], epochs: np.int_, hidden_layer_size: np
     input_data = input_data / 255
     labels: npt.NDArray[np.int_] = data[:, 0]
 
-    X_train, X_test, y_train, y_test = train_test_split(input_data, labels, test_size=TEST_SIZE, random_state=RANDOM_STATE)
+    X_train, X_test, y_train, y_test = train_test_split(
+        input_data, labels, test_size=TEST_SIZE, random_state=RANDOM_STATE
+    )
 
-    model_history = model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, shuffle=True, verbose=1)
+    model_history = model.fit(
+        X_train, y_train, batch_size=batch_size, epochs=epochs, shuffle=True, verbose=1
+    )
 
-    y_pred: npt.NDArray[np.int_] = model.predict(X_test, batch_size=batch_size, verbose=0)
+    y_pred: npt.NDArray[np.int_] = model.predict(
+        X_test, batch_size=batch_size, verbose=0
+    )
     y_pred = y_pred.argmax(axis=-1)
 
     accuracy_score: np.float_ = sklearn.metrics.accuracy_score(y_test, y_pred)
-    precision_score: npt.NDArray[np.float_] = sklearn.metrics.precision_score(y_test, y_pred, average=None, zero_division=0)
-    recall_score: npt.NDArray[np.float_] = sklearn.metrics.recall_score(y_test, y_pred, average=None, zero_division=0)
-    f1_score: npt.NDArray[np.float_] = sklearn.metrics.f1_score(y_test, y_pred, average=None)
-    confusion_matrix: npt.NDArray[np.int_] = sklearn.metrics.confusion_matrix(y_test, y_pred)
+    precision_score: npt.NDArray[np.float_] = sklearn.metrics.precision_score(
+        y_test, y_pred, average=None, zero_division=0
+    )
+    recall_score: npt.NDArray[np.float_] = sklearn.metrics.recall_score(
+        y_test, y_pred, average=None, zero_division=0
+    )
+    f1_score: npt.NDArray[np.float_] = sklearn.metrics.f1_score(
+        y_test, y_pred, average=None
+    )
+    confusion_matrix: npt.NDArray[np.int_] = sklearn.metrics.confusion_matrix(
+        y_test, y_pred
+    )
 
     run_info: dict = {
         "accuracy_score": accuracy_score,
@@ -59,7 +81,7 @@ def MNIST_MLP(data: npt.NDArray[np.int_], epochs: np.int_, hidden_layer_size: np
         "hidden_layer_size": hidden_layer_size,
         "batch_size": batch_size,
         "learning_rate": learning_rate,
-        "history": model_history.history
+        "history": model_history.history,
     }
 
     return run_info
@@ -70,9 +92,14 @@ batch_sizes: list[int] = [1, 10, 50, int(5000 * (1 - TEST_SIZE))]
 lerning_rates: list[float] = [0.5, 1.0, 10.0]
 epochs: list[int] = [10, 50, 100]
 
-configurations: list = list(itertools.product(epochs, hidden_layer_sizes, batch_sizes, lerning_rates))
+configurations: list = list(
+    itertools.product(epochs, hidden_layer_sizes, batch_sizes, lerning_rates)
+)
 
-run_infos: list[dict] = [MNIST_MLP(data=data, epochs=a, hidden_layer_size=b, batch_size=c, learning_rate=d) for a, b, c, d in configurations]
+run_infos: list[dict] = [
+    MNIST_MLP(data=data, epochs=a, hidden_layer_size=b, batch_size=c, learning_rate=d)
+    for a, b, c, d in configurations
+]
 
 with open("data/results.json", "a") as file:
     json.dump([run_info for run_info in run_infos], file, indent=4)

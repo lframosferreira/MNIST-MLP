@@ -125,41 +125,80 @@ Em resumo, nota-se que as configurações da rede impactam diretamente em sua pe
 
 \subsection{Trade-off entre número de unidades da camada oculta e algoritmo de cálculo de gradiente}
 
-Ao analisar os diferentes desempenhos da rede neuronal de acordo com a variação entre o número de unidades da camada oculta e o algoritmo de gradiente utilizado, podemos inferir diretamente que o aumento do número de neurônios
-causa um impacto positivo  no desempenho do modelo. Tal inferência faz sentido, uma vez que com uma rede com mais neurônios, mais informações podem ser extraídas e dessa maneira de melhor forma o modelo poderá generalizar sobre
-dados ainda não vistos. No entanto, fica claro que um abuso desse hiperparâmetro é algo que pode levar a \textit{overfitting}.
-
 Nos gráficos abaixo, podemos ver a variação da acurácia do modelo nos dados de teste em função da variação do número de unidades na camada oculta, para cada um dos algoritmo de cálculo de gradiente propostos.
 
-\begin{figure}[htbp]
+Ao analisar os diferentes desempenhos da rede neuronal de acordo com a variação entre o número de unidades da camada oculta e o algoritmo de gradiente utilizado, podemos inferir diretamente que o aumento do número de neurônios
+causa um impacto positivo no desempenho da maioria dos modelos. Tal inferência faz sentido, uma vez que com uma rede com mais neurônios, mais informações podem ser extraídas e dessa maneira de melhor forma o modelo poderá generalizar sobre
+dados ainda não vistos. No entanto, fica claro que um abuso desse hiperparâmetro é algo que pode levar a \textit{overfitting}. Isso fica evidente na análise do algoritmo \textit{Stochastic Gradient Descent}. Como, neste cenário, os pesos da rede são atualizados a cada dado de treino visto, o número alto de neurônios na camada oculta piorou os resultados, muito provavelmente devido
+a um problema de variância.
+
+Um fato importante de ser notado é que para a taxa de aprendizado 10.0, que é extremamente alta, o modelo se comporta de forma muito caótica, portanto a análise de seu desempenho conforme a variação do número de neurônios na
+camada oculta é prejudicado. No entanto, fica evidente que os modelos que utilizam essa taxa são os piores gerados.
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/tradeoff/SGD.jpg}
     \caption{Acurácia por número de neurônios para o algoritmo \textit{Stochastic Gradient Descent}}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/tradeoff/MB10.jpg}
     \caption{Acurácia por número de neurônios para o algoritmo \textit{Mini batch} (10)}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/tradeoff/MB50.jpg}
     \caption{Acurácia por número de neurônios para o algoritmo \textit{Mini batch} (50)}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/tradeoff/GD.jpg}
     \caption{Acurácia por número de neurônios para o algoritmo \textit{Gradient Descent}}
 \end{figure}
 
 
-FALAR MAIS AQUI
-
 \section{Convergência do erro empírico}
 
-Durante o treinamento das redes neuronais propostas, o histórico do erro empírico pode ser armazenado para análise de sua convergência, considerando cada configuração de rede proposta.
+Durante o treinamento das redes neuronais propostas, o histórico do erro empírico pode ser armazenado para análise de sua convergência, considerando cada configuração de rede proposta. Para fins de simplificação, serão mostrados
+aqui os gráficos de convergência de modelos conforme variação de apenas um hiperparâmetro, enquanto os outros serão escolhidos de forma empírica.
+
+Inicialmente, como discutido em seções anteriores, os modelos que tiveram os melhores resultados de acurácia na fase de teste tinham, de modo geral, 100 neurônios na camada oculta, uma taxa de aprendizado de 0.5 ou 1.0, e utilizavam o algoritmo \textit{Mini batch}.
+Tendo essas informações, os seguintes três gráficos foram gerados, em que, baseado nessas constatações, valores fixos para os dois hiperparâmetros não variáveis puderam ser escolhidos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/empirical_error/batch_size_not_fixed.jpg}
+    \caption{Convergência do erro empírico com tamanho do lote (Algoritmo de cálculo de gradiente) variável}
+\end{figure}
+
+Neste primeiro gráfico, podemos ver imediatamente que o algoritmo \texit{Stochastic Gradient Descent} (tamanho do lote igual a 1) foi o que pior performou na convergência do erro empírico
+para esta configuração. O seu erro empírivo, inclusive, teve diversas flutuações e sequer pareceu ter algum tipo de converg^ncia que faça sentido. Isso se deve ao fato de que na sua definição, os pesos
+da rede são alterados a cada dado de treino, portanto o conjunto de funções que a rede pode gerar é muito grande, causando essas flutuações. Com mais épocas, é possível que o modelo de \texit{SGD} tivesse
+um melhor desempenho. 
+
+Em relação aos outros algoritmos, nota-se que todos convergiram para erros empíricos bem baixos, com os melhores sendo os que utilizaram o algoritmo \textit{Mini batch} (tamanhos de lote 10 e 50), uma vez
+essa configuração permite uma atualização dos pesos em momentos equilibrados, propiciando um melhor ambeinte para convergência do erro empírico.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/empirical_error/hidden_layer_size_not_fixed.jpg}
+    \caption{Convergência do erro empírico com tamanho da rede oculta variável}
+\end{figure}
+
+Nesta configuração, nota-se todos os modelos convergiram para valores baixos de erro empírico, com a rede com 100 neurônios na camada oculta convergindo
+mais rapidamente e para valores menores. De modo geral, como era de se esperar, aumentar o número de neurônios, para esta configuração, melhora a performance.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/empirical_error/learning_rate_not_fixed.jpg}
+    \caption{Convergência do erro empírico com taxa de aprendizado variável}
+\end{figure}
+
+Por fim, no gráfico acima, podemos ver que para as configurações escolhidas, o modelo converge para valores baixos de erro empírico conforme o passar das épocas.
+Fica claro, conforme também foi discutido anteriormente, que a taxa de aprendizado 10.0 é a pior dentre as trẽs, já que converge para o valor mais alto de erro. Também
+como já discutido, isso ocorre pois uma alta taxa de aprendizado gera altas oscilações no treinamento, o que causa um alto nível de divergências.
 
 \end{document}
