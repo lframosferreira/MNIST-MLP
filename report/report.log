@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.4.9)  24 MAY 2023 19:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.4.9)  24 MAY 2023 20:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -283,6 +283,13 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip52
 )
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip53
+\bibsep=\skip54
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count286
+)
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
 
@@ -297,13 +304,13 @@ Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
 \caption@hangindent=\dimen169
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count286
-\c@continuedfloat=\count287
+\c@caption@flags=\count287
+\c@continuedfloat=\count288
 Package caption Info: hyperref package is loaded.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count288
+\c@float@type=\count289
 \float@exts=\toks23
 \float@box=\box52
 \@float@everytoks=\toks24
@@ -311,30 +318,30 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count289
+\l__color_backend_stack_int=\count290
 \l__pdf_internal_box=\box54
 )
 (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -372,16 +379,16 @@ LaTeX Font Info:    ... okay on input line 17.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count290
+\scratchcounter=\count291
 \scratchdimen=\dimen170
 \scratchbox=\box55
-\nofMPsegments=\count291
-\nofMParguments=\count292
+\nofMPsegments=\count292
+\nofMParguments=\count293
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count293
+\MPscratchCnt=\count294
 \MPscratchDim=\dimen171
-\MPnumerator=\count294
-\makeMPintoPDFobject=\count295
+\MPnumerator=\count295
+\makeMPintoPDFobject=\count296
 \everyMPtoPDFconversion=\toks26
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -400,7 +407,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
 )
-Package hyperref Info: Link coloring ON on input line 17.
+Package hyperref Info: Link coloring ON on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -411,11 +418,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count296
+\c@section@level=\count297
 )
-LaTeX Info: Redefining \ref on input line 17.
-LaTeX Info: Redefining \pageref on input line 17.
-LaTeX Info: Redefining \nameref on input line 17.
+LaTeX Info: Redefining \ref on input line 18.
+LaTeX Info: Redefining \pageref on input line 18.
+LaTeX Info: Redefining \nameref on input line 18.
 
 (./report.out) (./report.out)
 \@outlinefile=\write3
@@ -424,46 +431,50 @@ LaTeX Info: Redefining \nameref on input line 17.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
- [1
+
+
+Package natbib Warning: Citation `Ramos_Ferreira_MNIST-MLP_2022' on page 1 unde
+fined on input line 29.
+
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
 <images/tradeoff/SGD.jpg, id=46, 578.16pt x 361.35pt>
 File: images/tradeoff/SGD.jpg Graphic file (type jpg)
 <use images/tradeoff/SGD.jpg>
-Package pdftex.def Info: images/tradeoff/SGD.jpg  used on input line 135.
+Package pdftex.def Info: images/tradeoff/SGD.jpg  used on input line 137.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
  [3]
 <images/tradeoff/MB10.jpg, id=51, 578.16pt x 361.35pt>
 File: images/tradeoff/MB10.jpg Graphic file (type jpg)
 <use images/tradeoff/MB10.jpg>
-Package pdftex.def Info: images/tradeoff/MB10.jpg  used on input line 141.
+Package pdftex.def Info: images/tradeoff/MB10.jpg  used on input line 143.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
 <images/tradeoff/MB50.jpg, id=52, 578.16pt x 361.35pt>
 File: images/tradeoff/MB50.jpg Graphic file (type jpg)
 <use images/tradeoff/MB50.jpg>
-Package pdftex.def Info: images/tradeoff/MB50.jpg  used on input line 147.
+Package pdftex.def Info: images/tradeoff/MB50.jpg  used on input line 149.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
  [4 <./images/tradeoff/SGD.jpg> <./images/tradeoff/MB10.jpg>]
 <images/tradeoff/GD.jpg, id=59, 578.16pt x 361.35pt>
 File: images/tradeoff/GD.jpg Graphic file (type jpg)
 <use images/tradeoff/GD.jpg>
-Package pdftex.def Info: images/tradeoff/GD.jpg  used on input line 153.
+Package pdftex.def Info: images/tradeoff/GD.jpg  used on input line 155.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
 <images/empirical_error/batch_size_not_fixed.jpg, id=60, 578.16pt x 361.35pt>
 File: images/empirical_error/batch_size_not_fixed.jpg Graphic file (type jpg)
 <use images/empirical_error/batch_size_not_fixed.jpg>
 Package pdftex.def Info: images/empirical_error/batch_size_not_fixed.jpg  used 
-on input line 168.
+on input line 170.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
-
-[5 <./images/tradeoff/MB50.jpg> <./images/tradeoff/GD.jpg>]
+ [5 <./images/tradeoff/MB50.jpg> <./images/tradeoff/GD.jpg>]
 <images/empirical_error/hidden_layer_size_not_fixed.jpg, id=67, 578.16pt x 361.
 35pt>
 File: images/empirical_error/hidden_layer_size_not_fixed.jpg Graphic file (type
  jpg)
 <use images/empirical_error/hidden_layer_size_not_fixed.jpg>
 Package pdftex.def Info: images/empirical_error/hidden_layer_size_not_fixed.jpg
-  used on input line 182.
+  used on input line 184.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
  [6 <./images/empirical_error/batch_size_not_fixed.jpg> <./images/empirical_err
 or/hidden_layer_size_not_fixed.jpg>]
@@ -473,7 +484,7 @@ File: images/empirical_error/learning_rate_not_fixed.jpg Graphic file (type jpg
 )
 <use images/empirical_error/learning_rate_not_fixed.jpg>
 Package pdftex.def Info: images/empirical_error/learning_rate_not_fixed.jpg  us
-ed on input line 191.
+ed on input line 193.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
 <images/empirical_error/hidden_layer_size_not_fixed_bad.jpg, id=75, 578.16pt x 
 361.35pt>
@@ -481,18 +492,23 @@ File: images/empirical_error/hidden_layer_size_not_fixed_bad.jpg Graphic file (
 type jpg)
 <use images/empirical_error/hidden_layer_size_not_fixed_bad.jpg>
 Package pdftex.def Info: images/empirical_error/hidden_layer_size_not_fixed_bad
-.jpg  used on input line 204.
+.jpg  used on input line 206.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
  [7 <./images/empirical_error/learning_rate_not_fixed.jpg> <./images/empirical_
-error/hidden_layer_size_not_fixed_bad.jpg>] [8] (./report.aux)
+error/hidden_layer_size_not_fixed_bad.jpg>]
+No file report.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+[8] (./report.aux)
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 6A953882578A23F0F867248E4AF49747;1269.
  ) 
 Here is how much of TeX's memory you used:
- 11649 strings out of 480247
- 189952 string characters out of 5896152
- 509267 words of memory out of 5000000
- 29432 multiletter control sequences out of 15000+600000
+ 11988 strings out of 480247
+ 194243 string characters out of 5896152
+ 515216 words of memory out of 5000000
+ 29766 multiletter control sequences out of 15000+600000
  475323 words of font info for 49 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,9n,63p,724b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -503,7 +519,7 @@ e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on report.pdf (8 pages, 341272 bytes).
+Output written on report.pdf (8 pages, 344021 bytes).
 PDF statistics:
  126 PDF objects out of 1000 (max. 8388607)
  94 compressed objects within 1 object stream
