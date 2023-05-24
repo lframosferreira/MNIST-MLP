@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.4.9)  24 MAY 2023 19:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.4.9)  24 MAY 2023 19:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -317,24 +317,24 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -400,7 +400,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
 )
-Package hyperref Info: Link coloring ON on input line 23.
+Package hyperref Info: Link coloring ON on input line 17.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -413,9 +413,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count296
 )
-LaTeX Info: Redefining \ref on input line 23.
-LaTeX Info: Redefining \pageref on input line 23.
-LaTeX Info: Redefining \nameref on input line 23.
+LaTeX Info: Redefining \ref on input line 17.
+LaTeX Info: Redefining \pageref on input line 17.
+LaTeX Info: Redefining \nameref on input line 17.
 
 (./report.out) (./report.out)
 \@outlinefile=\write3
@@ -430,30 +430,30 @@ Package caption Info: End \AtBeginDocument code.
 <images/tradeoff/SGD.jpg, id=46, 578.16pt x 361.35pt>
 File: images/tradeoff/SGD.jpg Graphic file (type jpg)
 <use images/tradeoff/SGD.jpg>
-Package pdftex.def Info: images/tradeoff/SGD.jpg  used on input line 140.
+Package pdftex.def Info: images/tradeoff/SGD.jpg  used on input line 135.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
  [3]
 <images/tradeoff/MB10.jpg, id=51, 578.16pt x 361.35pt>
 File: images/tradeoff/MB10.jpg Graphic file (type jpg)
 <use images/tradeoff/MB10.jpg>
-Package pdftex.def Info: images/tradeoff/MB10.jpg  used on input line 146.
+Package pdftex.def Info: images/tradeoff/MB10.jpg  used on input line 141.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
 <images/tradeoff/MB50.jpg, id=52, 578.16pt x 361.35pt>
 File: images/tradeoff/MB50.jpg Graphic file (type jpg)
 <use images/tradeoff/MB50.jpg>
-Package pdftex.def Info: images/tradeoff/MB50.jpg  used on input line 152.
+Package pdftex.def Info: images/tradeoff/MB50.jpg  used on input line 147.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
  [4 <./images/tradeoff/SGD.jpg> <./images/tradeoff/MB10.jpg>]
 <images/tradeoff/GD.jpg, id=59, 578.16pt x 361.35pt>
 File: images/tradeoff/GD.jpg Graphic file (type jpg)
 <use images/tradeoff/GD.jpg>
-Package pdftex.def Info: images/tradeoff/GD.jpg  used on input line 158.
+Package pdftex.def Info: images/tradeoff/GD.jpg  used on input line 153.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
 <images/empirical_error/batch_size_not_fixed.jpg, id=60, 578.16pt x 361.35pt>
 File: images/empirical_error/batch_size_not_fixed.jpg Graphic file (type jpg)
 <use images/empirical_error/batch_size_not_fixed.jpg>
 Package pdftex.def Info: images/empirical_error/batch_size_not_fixed.jpg  used 
-on input line 173.
+on input line 168.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
 
 [5 <./images/tradeoff/MB50.jpg> <./images/tradeoff/GD.jpg>]
@@ -463,7 +463,7 @@ File: images/empirical_error/hidden_layer_size_not_fixed.jpg Graphic file (type
  jpg)
 <use images/empirical_error/hidden_layer_size_not_fixed.jpg>
 Package pdftex.def Info: images/empirical_error/hidden_layer_size_not_fixed.jpg
-  used on input line 187.
+  used on input line 182.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
  [6 <./images/empirical_error/batch_size_not_fixed.jpg> <./images/empirical_err
 or/hidden_layer_size_not_fixed.jpg>]
@@ -473,7 +473,7 @@ File: images/empirical_error/learning_rate_not_fixed.jpg Graphic file (type jpg
 )
 <use images/empirical_error/learning_rate_not_fixed.jpg>
 Package pdftex.def Info: images/empirical_error/learning_rate_not_fixed.jpg  us
-ed on input line 196.
+ed on input line 191.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
 <images/empirical_error/hidden_layer_size_not_fixed_bad.jpg, id=75, 578.16pt x 
 361.35pt>
@@ -481,7 +481,7 @@ File: images/empirical_error/hidden_layer_size_not_fixed_bad.jpg Graphic file (
 type jpg)
 <use images/empirical_error/hidden_layer_size_not_fixed_bad.jpg>
 Package pdftex.def Info: images/empirical_error/hidden_layer_size_not_fixed_bad
-.jpg  used on input line 209.
+.jpg  used on input line 204.
 (pdftex.def)             Requested size: 354.86412pt x 221.79059pt.
  [7 <./images/empirical_error/learning_rate_not_fixed.jpg> <./images/empirical_
 error/hidden_layer_size_not_fixed_bad.jpg>] [8] (./report.aux)
@@ -491,7 +491,7 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 Here is how much of TeX's memory you used:
  11649 strings out of 480247
  189952 string characters out of 5896152
- 508267 words of memory out of 5000000
+ 509267 words of memory out of 5000000
  29432 multiletter control sequences out of 15000+600000
  475323 words of font info for 49 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -503,7 +503,7 @@ e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on report.pdf (8 pages, 341199 bytes).
+Output written on report.pdf (8 pages, 341272 bytes).
 PDF statistics:
  126 PDF objects out of 1000 (max. 8388607)
  94 compressed objects within 1 object stream
